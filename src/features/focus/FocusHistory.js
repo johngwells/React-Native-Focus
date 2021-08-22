@@ -5,7 +5,7 @@ import { fontSizes, spacingSizes } from '../../utils/sizes';
 import { RoundedButton } from '../../components/RoundedButton';
 import { colors } from '../../utils/colors';
 
-const HistoryItem = ({ item, index }) => {
+const HistoryItem = ({ item }) => {
   // objects are not a valid react child so used stringify JSON.stringify(item)
   // after in the console I see the data & renamed to item.subject | item.status
   return <Text style={styles.historyItem(item.status)}>{item.subject}</Text>;
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.md
   }),
   title: {
+    padding: spacingSizes.xxl,
     color: '#4f90d9',
     fontSize: fontSizes.lg,
     textAlign: 'center',
