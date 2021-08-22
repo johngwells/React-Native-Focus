@@ -41,12 +41,12 @@ export const FocusHistory = ({ focusHistory, onClear }) => {
 // the function needs to return an object so wrapped in ()
 const styles = StyleSheet.create({
   historyItem: (status) => ({
-    color: status > 1 ? '#d5d94f' : '#4fd998',
+    color: status > 1 ? '#EC3E48' : '#CCB1A9',
     fontSize: fontSizes.md
   }),
   title: {
     padding: spacingSizes.xxl,
-    color: '#4f90d9',
+    color: colors.text,
     fontSize: fontSizes.lg,
     textAlign: 'center',
   },

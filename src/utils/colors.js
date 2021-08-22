@@ -1,4 +1,4 @@
 export const colors = {
-  text: '#f5f5f5',
-  bg: '#d9534f'
+  text: '#F8F2D0',
+  bg: '#382E46'
 }

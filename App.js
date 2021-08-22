@@ -78,7 +78,6 @@ export default function App() {
           <FocusHistory focusHistory={focusHistory} onClear={onClear} />
         </View>
       )}
-      <Text>{focusSubject}</Text>
     </View>
   );
 }

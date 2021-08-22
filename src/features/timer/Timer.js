@@ -62,7 +62,7 @@ export const Timer = ({ focusSubject, onTimerEnd, clearSubject }) => {
       <View style={{ paddingTop: spacingSizes.sm }}>
         <ProgressBar
           progress={progress}
-          color='#D9984F'
+          color='#ec3e48'
           style={{ height: 10 }}
         />
       </View>
@@ -77,7 +77,7 @@ export const Timer = ({ focusSubject, onTimerEnd, clearSubject }) => {
         )}
       </View>
       <View style={styles.clearSubject}>
-        <RoundedButton title='-' size={50} onPress={() => clearSubject()} />
+        <RoundedButton title='void' size={50} onPress={() => clearSubject()} />
       </View>
     </View>
   );
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     flex: 0.3,
     flexDirection: 'row',
     padding: 15,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center'
   },
   clearSubject: {

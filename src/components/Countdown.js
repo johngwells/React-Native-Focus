@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.text,
     padding: spacingSizes.lg,
-    backgroundColor: 'rgba(217, 152, 79, 0.3)'
+    backgroundColor: 'rgba(248, 242, 208, 0.3)'
   }
 });
