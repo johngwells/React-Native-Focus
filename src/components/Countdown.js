@@ -4,30 +4,32 @@ import { colors } from '../utils/colors';
 import { fontSizes, spacingSizes } from '../utils/sizes';
 
 const minutesToMillis = (min) => min * 1000 * 60;
-const formatTime = (time) => time < 10 ? `0${time}` : time;
+const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
-export const Countdown = ({
-  minutes = 20,
-  isPaused,
-}) => {
+export const Countdown = ({ minutes = 1, isPaused, onProgress }) => {
   const interval = React.useRef(null);
 
   const countDown = () => {
     setMillis((time) => {
-      if(time === 0) {
+      if (time === 0) {
         return time;
       }
       const timeLeft = time - 1000;
       // report progress
+      onProgress(timeLeft / minutesToMillis(minutes));
       return timeLeft;
     });
-  }
+  };
 
   useEffect(() => {
+    if (isPaused) {
+      return;
+    }
+
     interval.current = setInterval(countDown, 1000);
 
-    return () => clearInterval(interval.current)
-  }, [])
+    return () => clearInterval(interval.current);
+  }, [isPaused]);
 
   const [millis, setMillis] = useState(minutesToMillis(minutes));
 
@@ -35,9 +37,11 @@ export const Countdown = ({
   const seconds = Math.floor(millis / 1000) % 60;
 
   return (
-    <Text style={styles.text}>{formatTime(minute)}:{formatTime(seconds)}</Text>
+    <Text style={styles.text}>
+      {formatTime(minute)}:{formatTime(seconds)}
+    </Text>
   );
-}
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -47,4 +51,4 @@ const styles = StyleSheet.create({
     padding: spacingSizes.lg,
     backgroundColor: 'rgba(217, 152, 79, 0.3)'
   }
-})
+});
