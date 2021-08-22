@@ -23,6 +23,8 @@ export const Countdown = ({ minutes = 1, isPaused, onProgress }) => {
 
   useEffect(() => {
     if (isPaused) {
+      // clean up
+      if(interval.current) clearInterval(interval.current)
       return;
     }
 
@@ -30,6 +32,10 @@ export const Countdown = ({ minutes = 1, isPaused, onProgress }) => {
 
     return () => clearInterval(interval.current);
   }, [isPaused]);
+
+  useEffect(() => {
+    setMillis(minutesToMillis(minutes))
+  }, [minutes])
 
   const [millis, setMillis] = useState(minutesToMillis(minutes));
 
